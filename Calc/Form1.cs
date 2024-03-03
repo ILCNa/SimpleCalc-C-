@@ -316,7 +316,7 @@ namespace Calc
 
             }
             //处理^
-            if (e.KeyCode == Keys.D6 && e.Shift) buttonPower_Click(sender, e);
+            if (e.KeyCode == Keys.D6 && e.Shift) { NewMethodNum(); buttonPower_Click(sender, e); conutinueCalc = false; }
         }
         private void EnterFromWIN(object sender, KeyPressEventArgs e)
         {
@@ -370,14 +370,15 @@ namespace Calc
                 case '%': NewMethod(); buttonTh_Click(sender, e); conutinueCalc = false; break;
             }
 
-            void NewMethod()
-            {
-                if (conutinueCalc) richTextBox2.Text = result.ToString();
-            }
-            void NewMethodNum()
-            {
-                if (conutinueCalc)richTextBox2.Text = string.Empty;           
-            }
+            
+        }
+        void NewMethod()
+        {
+            if (conutinueCalc) richTextBox2.Text = result.ToString();
+        }
+        void NewMethodNum()
+        {
+            if (conutinueCalc) richTextBox2.Text = string.Empty;
         }
         private void buttonPower_Click(object sender, EventArgs e)
         {
@@ -555,6 +556,7 @@ namespace Calc
                     richTextBox2.ForeColor = System.Drawing.Color.Silver;
                     richTextBox2.Text = ERROR;
                     richTextBox2.SelectionStart = richTextBox2.TextLength;
+                    conutinueCalc = false;
                 }
                 numOfTh = 0;
             }
