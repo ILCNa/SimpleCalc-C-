@@ -525,6 +525,8 @@ namespace Calc
             else
             {
                 string str = string.Empty;
+                if (richTextBox2.Text[0] == '-')
+                    richTextBox2.Text = "0" + richTextBox2.Text;
                 for (int i = 0; i < richTextBox2.Text.Length; i++)
                 {
                     if (richTextBox2.Text[i] == '%') numOfTh++;
