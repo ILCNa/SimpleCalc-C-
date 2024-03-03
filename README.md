@@ -9,5 +9,6 @@ C# winform:
 5.一些贴心优化.
 
 作者用不惯微软自带的计算器,故借鉴其风格写了该计算器.用来处理日常生活中简单的计算需求.
+
 ![01](https://github.com/ILCNa/Calc/assets/53550905/74bd23b1-a742-4830-ae92-4b7b6fce8055)
 ![02](https://github.com/ILCNa/Calc/assets/53550905/e17ef763-12e1-42d5-b8fa-f4f987aa28c5)
