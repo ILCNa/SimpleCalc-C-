@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
@@ -11,11 +12,12 @@ namespace Calc
 {
     public partial class Form1 : Form
     {
+        private string ERROR = "ERROR";
+
         private Point point;
 
         private int sortForHistory;
         private string[] history = new string[100];
-        private bool CannextCalcNow = false;
 
         private int temp;
         private bool readyToChangeSize;
@@ -34,16 +36,41 @@ namespace Calc
             this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
             this.BackColor = SystemColors.Window;
             ControlBox = false;
-
+            LodingConfig();
             richTextBox2.SelectionAlignment = HorizontalAlignment.Right;
             richTextBox1.ShortcutsEnabled = true;
         }
 
 
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void LodingConfig()
         {
-
+            if (File.Exists("config.txt"))
+            {
+                if (File.ReadAllText("config.txt") == "english")
+                {
+                    labelWinTilte.Text = "SimpleCalc1.0";
+                    菜单ToolStripMenuItem.Text = "Menu";
+                    toolStripMenuItem4.Text = "Top";
+                    languageToolStripMenuItem.Text = "Language";
+                    toolStripMenuItem2.Text = "History";
+                    toolStripMenuItem1.Text = "Clear";
+                    ERROR = "ERROR";
+                }
+                else if (File.ReadAllText("config.txt") == "chinese")
+                {
+                    labelWinTilte.Text = "简便计算器1.0";
+                    菜单ToolStripMenuItem.Text = "菜单";
+                    toolStripMenuItem4.Text = "顶置";
+                    languageToolStripMenuItem.Text = "语言";
+                    toolStripMenuItem2.Text = "历史";
+                    toolStripMenuItem1.Text = "清空";
+                    ERROR = "输入异常";
+                }
+            }
+            else
+            {
+                File.WriteAllText("config.txt", "english");
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -293,7 +320,7 @@ namespace Calc
         }
         private void EnterFromWIN(object sender, KeyPressEventArgs e)
         {
-            if (richTextBox2.Text == "输入异常")
+            if (richTextBox2.Text ==ERROR)
             {
                 richTextBox2.Text = "";
                 richTextBox2.ForeColor = System.Drawing.Color.Black;
@@ -524,7 +551,7 @@ namespace Calc
                 catch (Exception ex)
                 {
                     richTextBox2.ForeColor = System.Drawing.Color.Silver;
-                    richTextBox2.Text = "输入异常";
+                    richTextBox2.Text = ERROR;
                     richTextBox2.SelectionStart = richTextBox2.TextLength;
                 }
                 numOfTh = 0;
@@ -736,7 +763,7 @@ namespace Calc
         private void TextBoxFouce(object sender, EventArgs e)
         {
             if (richTextBox2.Focused && richTextBox2.Text == "0") richTextBox2.Text = string.Empty;
-            if (richTextBox2.Text == "输入异常")
+            if (richTextBox2.Text == ERROR)
             {
                 richTextBox2.Text = "";
                 richTextBox2.ForeColor = System.Drawing.Color.Black;
@@ -745,7 +772,7 @@ namespace Calc
 
         private void dealTryCatch(object sender, MouseEventArgs e)
         {
-            if (richTextBox2.Text == "输入异常")
+            if (richTextBox2.Text == ERROR)
             {
                 richTextBox2.Text = "";
                 richTextBox2.ForeColor = System.Drawing.Color.Black;
@@ -754,7 +781,7 @@ namespace Calc
 
         private void TextBoxNoFouce(object sender, EventArgs e)
         {
-            if (richTextBox2.Text == "输入异常")
+            if (richTextBox2.Text == ERROR)
             {
                 richTextBox2.Text = "";
                 richTextBox2.ForeColor = System.Drawing.Color.Black;
@@ -792,6 +819,30 @@ namespace Calc
                 this.TopMost = false;
                 toolStripMenuItem4.Checked = false;
             }
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            labelWinTilte.Text = "SimpleCalc1.0";
+            菜单ToolStripMenuItem.Text = "Menu";
+            toolStripMenuItem4.Text = "Top";
+            languageToolStripMenuItem.Text = "Language";
+            toolStripMenuItem2.Text = "History";
+            toolStripMenuItem1.Text = "Clear";
+            ERROR = "ERROR";
+            File.WriteAllText("config.txt","english");
+        }
+
+        private void 中文ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            labelWinTilte.Text = "简便计算器1.0";
+            菜单ToolStripMenuItem.Text = "菜单";
+            toolStripMenuItem4.Text = "顶置";
+            languageToolStripMenuItem.Text = "语言";
+            toolStripMenuItem2.Text = "历史";
+            toolStripMenuItem1.Text = "清空";
+            ERROR = "输入异常";
+            File.WriteAllText("config.txt", "chinese");
         }
     }
 }

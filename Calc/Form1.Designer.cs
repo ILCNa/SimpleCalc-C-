@@ -72,6 +72,9 @@ namespace Calc
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -166,9 +169,9 @@ namespace Calc
             this.labelWinTilte.Margin = new System.Windows.Forms.Padding(0);
             this.labelWinTilte.Name = "labelWinTilte";
             this.labelWinTilte.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.labelWinTilte.Size = new System.Drawing.Size(122, 40);
+            this.labelWinTilte.Size = new System.Drawing.Size(100, 40);
             this.labelWinTilte.TabIndex = 0;
-            this.labelWinTilte.Text = "计算器1.0";
+            this.labelWinTilte.Text = "Calc1.0";
             this.labelWinTilte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelWinTilte.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WinMouseDown);
             this.labelWinTilte.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WinMove);
@@ -274,7 +277,6 @@ namespace Calc
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 655);
             this.tableLayoutPanel1.TabIndex = 22;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // buttonPower
             // 
@@ -828,21 +830,46 @@ namespace Calc
             // 菜单ToolStripMenuItem
             // 
             this.菜单ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4});
+            this.toolStripMenuItem4,
+            this.languageToolStripMenuItem});
             this.菜单ToolStripMenuItem.Font = new System.Drawing.Font("霞鹜文楷", 14F, System.Drawing.FontStyle.Bold);
             this.菜单ToolStripMenuItem.Image = global::Calc.Properties.Resources.setting;
             this.菜单ToolStripMenuItem.Name = "菜单ToolStripMenuItem";
             this.菜单ToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.菜单ToolStripMenuItem.Size = new System.Drawing.Size(101, 41);
-            this.菜单ToolStripMenuItem.Text = "菜单";
+            this.菜单ToolStripMenuItem.Size = new System.Drawing.Size(117, 41);
+            this.菜单ToolStripMenuItem.Text = "Menu";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Font = new System.Drawing.Font("霞鹜文楷", 10F, System.Drawing.FontStyle.Bold);
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(199, 36);
-            this.toolStripMenuItem4.Text = "顶置桌面";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(213, 36);
+            this.toolStripMenuItem4.Text = "Top";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem,
+            this.中文ToolStripMenuItem});
+            this.languageToolStripMenuItem.Font = new System.Drawing.Font("霞鹜文楷", 10F, System.Drawing.FontStyle.Bold);
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(213, 36);
+            this.languageToolStripMenuItem.Text = "Language";
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(183, 36);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // 中文ToolStripMenuItem
+            // 
+            this.中文ToolStripMenuItem.Name = "中文ToolStripMenuItem";
+            this.中文ToolStripMenuItem.Size = new System.Drawing.Size(183, 36);
+            this.中文ToolStripMenuItem.Text = "中文";
+            this.中文ToolStripMenuItem.Click += new System.EventHandler(this.中文ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -851,8 +878,8 @@ namespace Calc
             this.toolStripMenuItem2.Image = global::Calc.Properties.Resources._1;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(157, 41);
-            this.toolStripMenuItem2.Text = "历史记录";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(138, 41);
+            this.toolStripMenuItem2.Text = "Histroy";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // panel1
@@ -913,8 +940,8 @@ namespace Calc
             // 
             this.toolStripMenuItem1.Font = new System.Drawing.Font("霞鹜文楷", 14F, System.Drawing.FontStyle.Bold);
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 41);
-            this.toolStripMenuItem1.Text = "清空历史记录";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(103, 41);
+            this.toolStripMenuItem1.Text = "Clear";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // panelWinBody
@@ -1020,6 +1047,9 @@ namespace Calc
         private System.Windows.Forms.Button buttonBackSpace;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 中文ToolStripMenuItem;
     }
 }
 
